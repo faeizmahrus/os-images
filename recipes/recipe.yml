@@ -58,7 +58,7 @@ modules:
       # Other codecs
       - ffmpeg
       - ffmpeg-libs
-      #- libdvdcss # Needs the tainted repos, may or may not exist in the rpmfusion bling
+      #- libdvdcss # Needs the tainted repos, does not exist in the rpmfusion bling
       # Fonts and bn langpack
       - google-noto-fonts-all
       - langpacks-bn
