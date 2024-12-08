@@ -68,7 +68,7 @@ modules:
       # Brave Browser
       - brave-browser
       # Check if things actually work
-      - xyzsdaslhalfkhklhfklajfaeiz
+      #- xyzsdaslhalfkhklhfklajfaeiz
     #  - micro
     #  - starship
     remove:
