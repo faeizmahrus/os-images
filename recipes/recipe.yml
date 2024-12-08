@@ -82,7 +82,7 @@ modules:
       - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
       # Drivers
       - mesa-va-drivers
-      - mesa-vdpau-drivers
+      #- mesa-vdpau-drivers
       # Codecs
       - fdk-aac-free
       - libavcodec-free
