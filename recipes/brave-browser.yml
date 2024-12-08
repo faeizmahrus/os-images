@@ -1,0 +1,12 @@
+modules:
+  - type: rpm-ostree
+    repos:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    optfix:
+      - brave.com # Needed as brave-browser installs to /opt/
+
+    install:
+      # Brave Browser
+      - brave-browser # (has dependency issues for some reason)

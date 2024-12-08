@@ -1,0 +1,68 @@
+modules:  
+
+  - type: bling
+    install:
+      - rpmfusion # Add RPMFusion repository
+  
+  #- from-file: brave-browser.yml # Installs Brave Browser
+
+  - type: rpm-ostree
+
+    install:
+
+      # Fonts and Bangla langpack
+      - google-noto-fonts-all
+      - langpacks-bn
+
+      # Intel drivers
+      - intel-media-driver
+      - libva-intel-driver
+
+      # AMD drivers
+      - mesa-va-drivers-freeworld
+      - mesa-vdpau-drivers-freeworld
+
+      # OpenCL support      
+      - clinfo # To check OpenCL status
+      - intel-compute-runtime # Provides oneAPI and OpenCL support
+      #- rocm-opencl # Broken for some reason
+      #- rocminfo
+
+      # Other codecs
+      - ffmpeg
+      - ffmpeg-libs
+      - libdvdcss # Needs the tainted repos
+      
+      # Shells
+      - fish
+      - zsh
+      - tcsh
+
+      # System tools
+      - git
+      - distrobox
+      - virt-manager
+
+      # Syncthing
+      - syncthing
+
+    remove:
+      # Firefox Browser
+      - firefox
+      - firefox-langpacks
+
+      # Drivers
+      - mesa-va-drivers
+      #- mesa-vdpau-drivers
+
+      # Incomplete codecs
+      - fdk-aac-free
+      - libavcodec-free
+      - libavdevice-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libpostproc-free
+      - libswresample-free
+      - libswscale-free
+      - ffmpeg-free
