@@ -67,6 +67,8 @@ modules:
       - syncthing
       # Brave Browser
       - brave-browser
+      # Check if things actually work
+      - xyzsdaslhalfkhklhfklajfaeiz
     #  - micro
     #  - starship
     remove:
