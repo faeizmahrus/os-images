@@ -3,42 +3,106 @@
 # image will be published to ghcr.io/<user>/<name>
 name: kinoite-mahrus
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: My personal Fedora Kinoite image with fonts and Bangla language support.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+#base-image: ghcr.io/ublue-os/kinoite-main
+base-image: quay.io/fedora/fedora-kinoite
 image-version: 41 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+#  - type: files
+#    files:
+#      - source: system
+#        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+#  - type: script
+#  - snippets: 
+# - type: systemd
+#    user:
+#      enabled:
+#        - syncthing.service
 
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+    #  - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+    #  - https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
+    #  - https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
+    #  - https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-$releasever&arch=$basearch
+    #  - https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
-      - micro
-      - starship
+      # Precompiled RPMs
+      - fcitx-openbangla_3.0.0-F41.rpm
+      #- rpmfusion-free-release-41.noarch.rpm
+      #- rpmfusion-nonfree-release-41.noarch.rpm
+      # RPMFusion repos
+      - rpmfusion-free-release
+      - rpmfusion-free-release-tainted
+      - rpmfusion-nonfree-release
+      - rpmfusion-nonfree-release-tainted
+      # Intel drivers
+      - intel-media-driver
+      - libva-intel-driver
+      # AMD drivers
+      - mesa-va-drivers-freeworld
+      - mesa-vdpau-drivers-freeworld
+      # Other codecs
+      - ffmpeg
+      - ffmpeg-libs
+      - libdvdcss
+      # Fonts and bn langpack
+      - google-noto-fonts-all
+      - langpacks-bn
+      # System tools
+      - fish
+      - git
+      - distrobox
+      - virt-manager
+      # Syncthing
+      - syncthing
+      # Brave Browser
+      - brave-browser
+    #  - micro
+    #  - starship
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
       - firefox
       - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      # Drivers
+      - mesa-va-drivers
+      - mesa-vdpau-drivers
+      # Codecs
+      - fdk-aac-free
+      - libavcodec-free
+      - libavdevice-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libpostproc-free
+      - libswresample-free
+      - libswscale-free
+      - ffmpeg-free
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
+    #system:
       # If no repo information is specified, Flathub will be used by default
+      #install:
+      #  - org.mozilla.firefox
+      #  - org.gnome.Loupe
+      #remove:
+      #  - org.gnome.eog
+    user: # Also add Flathub user repo, but no user packages
       install:
-        - org.mozilla.firefox
-        - org.gnome.Loupe
-      remove:
-        - org.gnome.eog
-    user: {} # Also add Flathub user repo, but no user packages
+        - org.keepassxc.KeePassXC
+        - org.libreoffice.LibreOffice
+        - org.videolan.VLC
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
