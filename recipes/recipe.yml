@@ -25,6 +25,10 @@ modules:
 #      enabled:
 #        - syncthing.service
 
+  - type: bling
+    install:
+      - rpmfusion # Add RPMFusion repository
+
   - type: rpm-ostree
     repos:
     #  - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
@@ -41,10 +45,10 @@ modules:
       #- rpmfusion-free-release-41.noarch.rpm
       #- rpmfusion-nonfree-release-41.noarch.rpm
       # RPMFusion repos
-      - rpmfusion-free-release
-      - rpmfusion-free-release-tainted
-      - rpmfusion-nonfree-release
-      - rpmfusion-nonfree-release-tainted
+      #- rpmfusion-free-release
+      #- rpmfusion-free-release-tainted
+      #- rpmfusion-nonfree-release
+      #- rpmfusion-nonfree-release-tainted
       # Intel drivers
       - intel-media-driver
       - libva-intel-driver
@@ -54,7 +58,7 @@ modules:
       # Other codecs
       - ffmpeg
       - ffmpeg-libs
-      - libdvdcss
+      #- libdvdcss # Needs the tainted repos, may or may not exist in the rpmfusion bling
       # Fonts and bn langpack
       - google-noto-fonts-all
       - langpacks-bn
