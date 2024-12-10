@@ -1,6 +1,8 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
+
+# RELEASE 1.0
 name: kinoite-mahrus
 # description will be included in the image's metadata
 description: My personal Fedora Kinoite image with fonts and Bangla language support.
