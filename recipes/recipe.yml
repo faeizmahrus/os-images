@@ -38,7 +38,7 @@ modules:
       # Intel drivers
       - intel-media-driver
       - libva-intel-driver
-      - intel-compute-runtime
+      - intel-compute-runtime # Provides oneAPI and OpenCL support via intel=level-zero and intel-opencl packages as deps
       # AMD drivers
       - mesa-va-drivers-freeworld
       - mesa-vdpau-drivers-freeworld
@@ -48,6 +48,8 @@ modules:
       - ffmpeg
       - ffmpeg-libs
       - libdvdcss # Needs the tainted repos, does not exist in the rpmfusion bling ; Got added recently
+      # TPM support (Not needed on F41, most likely included ootb)
+      #- tpm-tss
       # Fonts and bn langpack
       - google-noto-fonts-all
       - langpacks-bn
