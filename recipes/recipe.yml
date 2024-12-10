@@ -8,7 +8,7 @@ description: My personal Fedora Kinoite image with fonts and Bangla language sup
 # the base image to build on top of (FROM) and the version tag to use
 #base-image: ghcr.io/ublue-os/kinoite-main
 base-image: quay.io/fedora/fedora-kinoite
-image-version: latest # latest is also supported if you want new updates ASAP
+image-version: 41 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -20,10 +20,6 @@ modules:
 
 #  - type: script
 #  - snippets: 
-# - type: systemd
-#    user:
-#      enabled:
-#        - syncthing.service
 
   - type: bling
     install:
@@ -31,11 +27,6 @@ modules:
 
   - type: rpm-ostree
     repos:
-    #  - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-    #  - https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
-    #  - https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
-    #  - https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-$releasever&arch=$basearch
-    #  - https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -44,23 +35,19 @@ modules:
     install:
       # Precompiled RPMs
       - fcitx-openbangla_3.0.0-F41.rpm
-      #- rpmfusion-free-release-41.noarch.rpm
-      #- rpmfusion-nonfree-release-41.noarch.rpm
-      # RPMFusion repos
-      #- rpmfusion-free-release
-      #- rpmfusion-free-release-tainted
-      #- rpmfusion-nonfree-release
-      #- rpmfusion-nonfree-release-tainted
       # Intel drivers
       - intel-media-driver
       - libva-intel-driver
+      - intel-compute-runtime
       # AMD drivers
       - mesa-va-drivers-freeworld
       - mesa-vdpau-drivers-freeworld
+      - rocm-opencl
+      - rocminfo
       # Other codecs
       - ffmpeg
       - ffmpeg-libs
-      #- libdvdcss # Needs the tainted repos, does not exist in the rpmfusion bling
+      - libdvdcss # Needs the tainted repos, does not exist in the rpmfusion bling ; Got added recently
       # Fonts and bn langpack
       - google-noto-fonts-all
       - langpacks-bn
@@ -69,23 +56,19 @@ modules:
       - git
       - distrobox
       - virt-manager
+      - clinfo # To check OpenCL status
       # Syncthing
       - syncthing
       # Brave Browser
       - brave-browser
-      # Check if things actually work
-      #- xyzsdaslhalfkhklhfklajfaeiz
-    #  - micro
-    #  - starship
     remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
+      # Firefox Browser
       - firefox
-      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      - firefox-langpacks
       # Drivers
       - mesa-va-drivers
       #- mesa-vdpau-drivers
-      # Codecs
+      # Incomplete codecs
       - fdk-aac-free
       - libavcodec-free
       - libavdevice-free
@@ -106,11 +89,16 @@ modules:
       #  - org.gnome.Loupe
       #remove:
       #  - org.gnome.eog
-    user: # Also add Flathub user repo, but no user packages
+    user: # Install flatpaks as user
       install:
         - org.keepassxc.KeePassXC
         - org.libreoffice.LibreOffice
         - org.videolan.VLC
+
+#  - type: systemd
+#     user:
+#       enabled:
+#         - syncthing.service # Enable syncthing service ootb
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
