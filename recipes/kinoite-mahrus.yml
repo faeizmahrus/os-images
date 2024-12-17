@@ -15,14 +15,6 @@ image-version: 41 # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-#  - type: files
-#    files:
-#      - source: system
-#        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
-#  - type: script
-#  - snippets: 
-
   - type: bling
     install:
       - rpmfusion # Add RPMFusion repository
@@ -51,15 +43,15 @@ modules:
       # AMD drivers
       - mesa-va-drivers-freeworld
       - mesa-vdpau-drivers-freeworld
-      - rocm-opencl
-      - rocminfo
+      #- rocm-opencl # Broken for some reason
+      #- rocminfo
 
       # Other codecs
       - ffmpeg
       - ffmpeg-libs
-      - libdvdcss # Needs the tainted repos, does not exist in the rpmfusion bling ; Got added recently
+      - libdvdcss # Needs the tainted repos
 
-      # TPM support (Not needed on F41, most likely included ootb)
+      # TPM support (Not needed on F41)
       #- tpm-tss
 
       # System tools
@@ -98,21 +90,19 @@ modules:
 
   - type: default-flatpaks # If no repo information is specified, Flathub will be used by default
     notify: true # Send notification after install/uninstall is finished (true/false)
-
-    #system:
-      #install:
+    system:
+      install:
+        # Essentials
+        - org.libreoffice.LibreOffice
+        - org.videolan.VLC
+        - org.fedoraproject.MediaWriter
+        #- org.keepassxc.KeePassXC
+        #- it.mijorus.gearlever
 
       #remove:
 
     user: # Install flatpaks as user
       install:
-        # Essentials
-        - org.libreoffice.LibreOffice
-        - org.videolan.VLC
-        - org.keepassxc.KeePassXC
-        - it.mijorus.gearlever
-        - org.fedoraproject.MediaWriter
-
         # Extras
         - org.localsend.localsend_app
         - com.github.johnfactotum.Foliate
