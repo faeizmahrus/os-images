@@ -1,17 +1,21 @@
-# kinoite-mahrus &nbsp; [![bluebuild build badge](https://github.com/faeizmahrus/kinoite-mahrus/actions/workflows/build.yml/badge.svg)](https://github.com/faeizmahrus/kinoite-mahrus/actions/workflows/build.yml)
+# os-images &nbsp; [![bluebuild build badge](https://github.com/faeizmahrus/os-images/actions/workflows/build.yml/badge.svg)](https://github.com/faeizmahrus/os-images/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+My personal OCI container images.
 
-### My personal Fedora Kinoite image with fonts and Bangla language support.
+## Image list
+- ### [kinoite-mahrus](recipes/kinoite-mahrus.yml) <br>
+  Fedora Kinoite image with the RPMFusion repos, Brave Browser, entire Noto font family, OpenBangla Keyboard and many other things preinstalled.
+- ### [devbox-arch](recipes/devbox-arch.yml) <br>
+  Distrobox image with the C/C++ toolchain, Rust toolchain and VSCode preinstalled.
+- ### [appbox-arch](recipes/appbox-arch.yml) <br>
+  Distrobox image with Obsidian, Zotero, KeePassXC and LibreOffice preinstalled. Based on `ublue-toolbox` image.
+- ### [winebox-fedora](recipes/winebox-fedora.yml) <br>
+  Distrobox image with `winehq-staging` preinstalled from the official WineHQ repos for Fedora. Their builds are compiled with WoW64 support and don't pull 32-bit libs. Some useful scripts are also included.
 
-## Installation
-
-> **Warning**  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
-
+## Installing kinoite-mahrus
 To rebase an existing atomic Fedora installation to the latest build:
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
+- First, rebase to the unsigned image to get the proper signing keys and policies installed:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/faeizmahrus/kinoite-mahrus:latest
   ```
@@ -19,7 +23,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
   systemctl reboot
   ```
-- Then rebase to the signed image, like so:
+- Finally, rebase to the signed image:
   ```
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/faeizmahrus/kinoite-mahrus:latest
   ```
@@ -28,11 +32,11 @@ To rebase an existing atomic Fedora installation to the latest build:
   systemctl reboot
   ```
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+The `latest` tag will automatically point to the latest build.
 
 ## ISO
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+You can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso).
 
 ## Verification
 
@@ -41,3 +45,6 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/faeizmahrus/kinoite-mahrus
 ```
+
+## BlueBuild
+See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
