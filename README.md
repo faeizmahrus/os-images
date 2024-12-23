@@ -2,16 +2,12 @@
 
 My personal OCI container images.
 
+### <b> For distrobox images: [distrobox-images-boxkit](https://github.com/faeizmahrus/distrobox-images-boxkit)
+
 ## Image list
 - ### [kinoite-mahrus](recipes/kinoite-mahrus.yml) <br>
   Fedora Kinoite image with the RPMFusion repos, Brave Browser, entire Noto font family, OpenBangla Keyboard and many other things preinstalled.
-- ### [devbox-arch](recipes/devbox-arch.yml) <br>
-  Distrobox image with the C/C++ toolchain, Rust toolchain and VSCode preinstalled.
-- ### [appbox-arch](recipes/appbox-arch.yml) <br>
-  Distrobox image with Obsidian, Zotero, KeePassXC and LibreOffice preinstalled. Based on `ublue-toolbox` image.
-- ### [winebox-fedora](recipes/winebox-fedora.yml) <br>
-  Distrobox image with `winehq-staging` preinstalled from the official WineHQ repos for Fedora. Their builds are compiled with WoW64 support and don't pull 32-bit libs. Some useful scripts are also included.
-
+  
 ## Installing kinoite-mahrus
 To rebase an existing atomic Fedora installation to the latest build:
 
