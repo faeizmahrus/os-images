@@ -1,7 +1,9 @@
 # os-images &nbsp; [![bluebuild build badge](https://github.com/faeizmahrus/os-images/actions/workflows/build.yml/badge.svg)](https://github.com/faeizmahrus/os-images/actions/workflows/build.yml)
 
 My personal OCI container images.
+
 Instructions for ISO generation: [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso).
+
 Verify the image signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
