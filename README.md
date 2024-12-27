@@ -15,7 +15,7 @@ cosign verify --key cosign.pub ghcr.io/faeizmahrus/kinoite-mahrus
 - ### [kinoite-mahrus](recipes/kinoite-mahrus.yml) <br>
   Fedora Kinoite image with the RPMFusion repos, Brave Browser, entire Noto font family, OpenBangla Keyboard and many other things preinstalled.
 - ### [silverblue-mahrus](recipes/kinoite-mahrus.yml) <br>
-Fedora Silverblue image with the RPMFusion repos, Brave Browser, entire Noto font family, OpenBangla Keyboard and many other things preinstalled.
+  Fedora Silverblue image with the RPMFusion repos, Brave Browser, entire Noto font family, OpenBangla Keyboard and many other things preinstalled.
   
 ## Installing kinoite-mahrus
 To rebase an existing atomic Fedora installation to the latest build:
