@@ -3,13 +3,13 @@
 # image will be published to ghcr.io/<user>/<name>
 
 # RELEASE 1.0
-name: kinoite-mahrus
+name: silverblue-mahrus
 # description will be included in the image's metadata
-description: My personal Fedora Kinoite image with fonts and Bangla language support.
+description: My personal Fedora Silverblue image with fonts and Bangla language support.
 
 # the base image to build on top of (FROM) and the version tag to use
 #base-image: ghcr.io/ublue-os/kinoite-main
-base-image: quay.io/fedora/fedora-kinoite
+base-image: quay.io/fedora/fedora-silverblue
 image-version: 41 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -38,11 +38,14 @@ modules:
       # Intel drivers
       - intel-media-driver
       - libva-intel-driver
-      - intel-compute-runtime # Provides oneAPI and OpenCL support
 
       # AMD drivers
       - mesa-va-drivers-freeworld
       - mesa-vdpau-drivers-freeworld
+
+      # OpenCL support      
+      - clinfo # To check OpenCL status
+      - intel-compute-runtime # Provides oneAPI and OpenCL support
       #- rocm-opencl # Broken for some reason
       #- rocminfo
 
@@ -51,15 +54,15 @@ modules:
       - ffmpeg-libs
       - libdvdcss # Needs the tainted repos
 
-      # TPM support (Not needed on F41)
-      #- tpm-tss
+      # Shells
+      - fish
+      - zsh
+      - tcsh
 
       # System tools
-      - fish
       - git
       - distrobox
       - virt-manager
-      - clinfo # To check OpenCL status
 
       # Syncthing
       - syncthing

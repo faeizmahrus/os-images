@@ -3,13 +3,13 @@
 # image will be published to ghcr.io/<user>/<name>
 
 # RELEASE 1.0
-name: silverblue-mahrus
+name: kinoite-mahrus
 # description will be included in the image's metadata
-description: My personal Fedora Silverblue image with fonts and Bangla language support.
+description: My personal Fedora Kinoite image with fonts and Bangla language support.
 
 # the base image to build on top of (FROM) and the version tag to use
 #base-image: ghcr.io/ublue-os/kinoite-main
-base-image: quay.io/fedora/fedora-silverblue
+base-image: quay.io/fedora/fedora-kinoite
 image-version: 41 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
