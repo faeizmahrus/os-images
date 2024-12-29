@@ -30,6 +30,7 @@ modules:
     install:
       # Precompiled RPMs
       #- fcitx-openbangla_3.0.0-F41.rpm
+      - ibus-openbangla_3.0.0-.rpm
 
       # Fonts and bn langpack
       - google-noto-fonts-all
