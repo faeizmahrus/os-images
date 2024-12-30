@@ -21,16 +21,16 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      #- https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
     keys:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+      #- https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     optfix:
-      - brave.com # Needed as brave-browser installs to /opt/
+      #- brave.com # Needed as brave-browser installs to /opt/
 
     install:
       # Precompiled RPMs
       #- fcitx-openbangla_3.0.0-F41.rpm
-      - ibus-openbangla_3.0.0-.rpm
+      - ibus-openbangla_3.0.0-F41.rpm
 
       # Fonts and bn langpack
       - google-noto-fonts-all
@@ -69,7 +69,7 @@ modules:
       - syncthing
 
       # Brave Browser
-      - brave-browser
+      #- brave-browser (optfix has been broken for some reason)
 
     remove:
       # Firefox Browser
