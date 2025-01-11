@@ -7,10 +7,10 @@ modules:
   #- from-file: brave-browser.yml # Installs Brave Browser
 
   # Adds extra udev rules for stuff
-  #- type: copy
-  #  from: ghcr.io/ublue-os/config
-  #  src: /files/ublue-os/udev-rules/
-  #  dest: /
+  - type: copy
+    from: ghcr.io/ublue-os/config
+    src: /ublue-os/udev-rules/
+    dest: /
 
   - type: rpm-ostree
 
