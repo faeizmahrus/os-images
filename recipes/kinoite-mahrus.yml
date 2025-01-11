@@ -18,7 +18,6 @@ modules:
 # Import base-config.yml to setup codecs and other common image stuff 
   - from-file: base-config.yml
   - type: rpm-ostree
-    source: ghcr.io/blue-build/modules/rpm-ostree:rpm-ostree-fix-local-packages
     install:
       # Precompiled RPMs
       - fcitx-openbangla_3.0.0-F41.rpm
