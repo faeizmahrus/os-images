@@ -9,7 +9,7 @@ modules:
   # Adds extra udev rules for stuff
   - type: copy
     from: ghcr.io/ublue-os/config
-    src: /ublue-os/udev-rules/
+    src: /files/ublue-os-udev-rules
     dest: /
 
   - type: rpm-ostree
