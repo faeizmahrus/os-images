@@ -17,12 +17,16 @@ cosign verify --key cosign.pub ghcr.io/faeizmahrus/kinoite-mahrus
 - ### [silverblue-mahrus](recipes/kinoite-mahrus.yml) <br>
   Fedora Silverblue image with the RPMFusion repos, Brave Browser, entire Noto font family, OpenBangla Keyboard and many other things preinstalled.
   
-## Installing kinoite-mahrus
+## Installing the images
 To rebase an existing atomic Fedora installation to the latest build:
 
 - First, rebase to the unsigned image to get the proper signing keys and policies installed:
   ```
+  # Fedora Kinoite
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/faeizmahrus/kinoite-mahrus:latest
+
+  # Fedora Silverblue
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/faeizmahrus/silverblue-mahrus:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -30,7 +34,12 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Finally, rebase to the signed image:
   ```
+  # Fedora Kinoite
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/faeizmahrus/kinoite-mahrus:latest
+
+  # Fedora Silverblue
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/faeizmahrus/silverblue-mahrus:latest
+
   ```
 - Reboot again to complete the installation
   ```
