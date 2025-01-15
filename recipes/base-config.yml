@@ -47,7 +47,7 @@ modules:
       # System tools
       - git
       - distrobox
-      - virt-manager
+      - gnome-boxes
 
       # Syncthing
       - syncthing
