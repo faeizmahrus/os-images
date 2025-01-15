@@ -52,6 +52,9 @@ modules:
       # Syncthing
       - syncthing
 
+      # Chromium
+      - chromium # Chromium from official repos now use whatever ffmpeg is shipped
+
     remove:
       # Firefox Browser
       - firefox
