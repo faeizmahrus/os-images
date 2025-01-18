@@ -1,5 +1,4 @@
 modules:  
-
   - type: bling
     install:
       - rpmfusion # Add RPMFusion repository
@@ -12,10 +11,9 @@ modules:
     src: /files/ublue-os-udev-rules
     dest: /
 
+  # Install/Remove stuff
   - type: rpm-ostree
-
     install:
-
       # Fonts and Bangla langpack
       - google-noto-fonts-all
       - langpacks-bn

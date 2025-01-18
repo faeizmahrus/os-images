@@ -21,6 +21,39 @@ modules:
     install:
       # Precompiled RPMs
       - ibus-openbangla_3.0.0-F41.rpm
+  # Install essential flatpaks
+  - type: default-flatpaks
+    notify: true
+    user:
+      install:
+      # Core GNOME Apps (org.gnome)
+      - org.gnome.Calculator
+      - org.gnome.Calendar
+      - org.gnome.clocks
+      - org.gnome.Decibels
+      - org.gnome.Loupe
+      - org.gnome.Showtime
+      - org.gnome.TextEditor
+      - org.gnome.Weather
+      - org.gnome.World.PikaBackup
+      - org.gnome.World.Secrets
+      # Third-party GNOME Apps
+      - page.tesk.Refine
+      - net.nokyan.Resources
+      - com.mattjakeman.ExtensionManager
+      - com.github.tchx84.Flatseal
+      - io.github.flattool.Warehouse
+      # Others
+      - com.usebottles.bottles
+      - com.github.johnfactotum.Foliate
+      - dev.bragefuglseth.Keypunch
+      - org.qbittorrent.qBittorrent
+      # Browser and Email client (Opinionated)
+      - app.zen_browser.zen
+      - org.mozilla.Thunderbird
+      # Editors
+      - org.kde.krita
+      - org.kde.kdenlive
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
