@@ -15,12 +15,16 @@ image-version: 41 # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-# Import base-config.yml to setup codecs and other common image stuff 
+  # Import base-config.yml to setup codecs and other common image stuff 
   - from-file: base-config.yml
+  # Install OBK fcitx
   - type: rpm-ostree
     install:
       # Precompiled RPMs
       - fcitx-openbangla_3.0.0-F41.rpm
+  ## Extra flatpaks
+  #- from-file: extra-flatpaks.yml 
+  ##- from-file: gnome-flatpaks.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 

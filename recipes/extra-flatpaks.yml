@@ -1,0 +1,22 @@
+modules:
+  - type: default-flatpaks
+    notify: true
+    user:
+      install:
+      # Others
+      - com.usebottles.bottles
+      - com.github.johnfactotum.Foliate
+      - dev.bragefuglseth.Keypunch
+      - org.qbittorrent.qBittorrent
+      - org.videolan.VLC
+      - org.localsend.localsend_app
+      # Browser and Email client (Opinionated)
+      - app.zen_browser.zen
+      - org.torproject.torbrowser-launcher
+      - org.mozilla.Thunderbird
+      # Editors
+      - org.kde.krita
+      - org.gimp.GIMP
+      - org.kde.kdenlive
+      # Office Suite
+      - org.onlyoffice.desktopeditors

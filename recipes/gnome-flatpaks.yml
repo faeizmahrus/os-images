@@ -1,0 +1,32 @@
+modules:
+  - type: default-flatpaks
+    notify: true
+    system:
+      install:
+      # Core GNOME Apps (org.gnome)
+      ## Basic Apps
+      - org.gnome.Calculator
+      - org.gnome.Calendar
+      - org.gnome.Contacts
+      - org.gnome.clocks
+      - org.gnome.Decibels
+      - org.gnome.Loupe
+      - org.gnome.Showtime
+      - org.gnome.Snapshot
+      - org.gnome.font-viewer
+      - org.gnome.TextEditor
+      - org.gnome.Weather
+      - org.gnome.Connections
+      - org.gnome.NetworkDisplays
+      - org.gnome.Firmware
+      ## Optional stuff
+      - org.gnome.Boxes
+      - org.gnome.seahorse.Application
+      - org.gnome.World.PikaBackup
+      - org.gnome.World.Secrets
+      # Others
+      - page.tesk.Refine
+      - net.nokyan.Resources
+      - com.mattjakeman.ExtensionManager
+      - com.github.tchx84.Flatseal
+      - io.github.flattool.Warehouse
