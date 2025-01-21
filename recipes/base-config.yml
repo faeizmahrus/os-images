@@ -73,3 +73,7 @@ modules:
       - libswresample-free
       - libswscale-free
       - ffmpeg-free
+
+  - type: script
+    snippets:
+      - "sed -i '/^Exec=/ s/%U/--enable-features=AcceleratedVideoDecodeLinuxGL %U/' /usr/share/applications/chromium-browser.desktop"
