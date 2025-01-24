@@ -1,0 +1,6 @@
+modules:
+  - type: rpm-ostree
+    install:
+    # Fedora Server docs for ref: https://docs.fedoraproject.org/en-US/fedora-server/virtualization/installation/
+    - qemu
+    - libvirt

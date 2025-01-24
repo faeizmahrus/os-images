@@ -69,6 +69,7 @@ modules:
       - libswscale-free
       - ffmpeg-free
 
+  - from-file: ./system/system-virtualization.yml # Enables Virtualization support
   - from-file: ./apps/browser-chromium.yml # Installs Chromium Browser
   #- from-file: ./apps/browser-brave.yml # Installs Brave Browser
-  #- from-file: ./flatpaks/basic-flatpaks.yml # Installs Basic Flatpaks
+  #- from-file: ./flatpaks/flatpaks-basic.yml # Installs Basic Flatpaks
