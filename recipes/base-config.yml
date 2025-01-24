@@ -2,10 +2,6 @@ modules:
   - type: bling
     install:
       - rpmfusion # Add RPMFusion repository
-  
-  #- from-file: ./flatpaks/basic-flatpaks.yml # Installs Basic Flatpaks
-  #- from-file: ./apps/browser-brave.yml # Installs Brave Browser
-  - from-file: ./apps/browser-chromium.yml # Installs Chromium Browser
 
   # Adds extra udev rules for stuff
   - type: copy
@@ -72,3 +68,7 @@ modules:
       - libswresample-free
       - libswscale-free
       - ffmpeg-free
+
+  - from-file: ./apps/browser-chromium.yml # Installs Chromium Browser
+  #- from-file: ./apps/browser-brave.yml # Installs Brave Browser
+  #- from-file: ./flatpaks/basic-flatpaks.yml # Installs Basic Flatpaks
