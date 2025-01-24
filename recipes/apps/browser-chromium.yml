@@ -1,0 +1,9 @@
+modules:
+  - type: rpm-ostree
+    install:
+      - chromium # Chromium from official repos now use whatever ffmpeg is shipped
+
+  # Enables HW Accelerated Video Decoding
+  - type: script
+    snippets:
+      - "sed -i '/^Exec=/ s/%U/--enable-features=AcceleratedVideoDecodeLinuxGL %U/' /usr/share/applications/chromium-browser.desktop"

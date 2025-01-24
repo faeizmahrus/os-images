@@ -23,8 +23,7 @@ modules:
       # Precompiled RPMs
       - ibus-openbangla_3.0.0-F41.rpm
   ## Extra flatpaks
-  #- from-file: extra-flatpaks.yml  
-  #- from-file: gnome-flatpaks.yml
+  #- from-file: ./flatpaks/gnome-flatpaks.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 

@@ -3,7 +3,9 @@ modules:
     install:
       - rpmfusion # Add RPMFusion repository
   
-  #- from-file: brave-browser.yml # Installs Brave Browser
+  #- from-file: ./flatpaks/basic-flatpaks.yml # Installs Basic Flatpaks
+  #- from-file: ./apps/browser-brave.yml # Installs Brave Browser
+  - from-file: ./apps/browser-chromium.yml # Installs Chromium Browser
 
   # Adds extra udev rules for stuff
   - type: copy
@@ -50,9 +52,6 @@ modules:
       # Syncthing
       - syncthing
 
-      # Chromium
-      - chromium # Chromium from official repos now use whatever ffmpeg is shipped
-
     remove:
       # Firefox Browser
       - firefox
@@ -73,7 +72,3 @@ modules:
       - libswresample-free
       - libswscale-free
       - ffmpeg-free
-
-  - type: script
-    snippets:
-      - "sed -i '/^Exec=/ s/%U/--enable-features=AcceleratedVideoDecodeLinuxGL %U/' /usr/share/applications/chromium-browser.desktop"
